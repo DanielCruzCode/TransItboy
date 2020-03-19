@@ -1,4 +1,5 @@
-@extends('books.layout')
+{{-- @extends('books.layout') --}}
+@extends('layouts.app')
 
 
 @section('content')
@@ -8,7 +9,7 @@
                 <h2>Books</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('books.create') }}"> Create New Book</a>
+                <a class="btn btn-outline-success my-3" href="{{ route('books.create') }}"> Create New Book</a>
             </div>
         </div>
     </div>
@@ -22,28 +23,32 @@
     @endif
 
 
-    <table class="table table-bordered">
-        <tr>
-            <th>No</th>
-            <th>Name</th>
-            <th>Details</th>
-            <th width="280px">Action</th>
-        </tr>
+    <table class="table table-striped table-borderless table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>N°</th>
+                <th>Name</th>
+                <th>Details</th>
+                <th width="280px">Action</th>
+            </tr>
+        </thead>
 	    @foreach ($books as $book)
-	    <tr>
-	        <td>{{ ++$i }}</td>
-	        <td>{{ $book->name }}</td>
-	        <td>{{ $book->detail }}</td>
-	        <td>
-                <form action="{{ route('books.destroy',$book->id) }}" method="POST">
-                    <a class="btn btn-info" href="{{ route('books.show',$book->id) }}">Mostrar</a>
-                    <a class="btn btn-primary" href="{{ route('books.edit',$book->id) }}">Editar</a>
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Borrar</button>
-                </form>
-	        </td>
-	    </tr>
+	    <tbody>
+            <tr>
+                <td>{{ ++$i }}</td>
+                <td>{{ $book->name }}</td>
+                <td>{{ $book->detail }}</td>
+                <td>
+                    <form action="{{ route('books.destroy',$book->id) }}" method="POST">
+                        <a class="btn btn-outline-info" href="{{ route('books.show',$book->id) }}">Mostrar</a>
+                        <a class="btn btn-outline-dark" href="{{ route('books.edit',$book->id) }}">Editar</a>
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline-danger">Borrar</button>
+                    </form>
+                </td>
+            </tr>
+	    </tbody>
 	    @endforeach
     </table>
 

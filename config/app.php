@@ -176,7 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         //Mongo service provider
-
+        Jenssegers\Mongodb\Auth\PasswordResetServiceProvider::class,
         Jenssegers\Mongodb\MongodbServiceProvider::class,
 
     ],
