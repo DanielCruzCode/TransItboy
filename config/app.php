@@ -178,6 +178,10 @@ return [
         //Mongo service provider
         Jenssegers\Mongodb\Auth\PasswordResetServiceProvider::class,
         Jenssegers\Mongodb\MongodbServiceProvider::class,
+        // DOMODF service provider
+        Barryvdh\DomPDF\ServiceProvider::class,
+        // Maatwebsite service provider
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -230,6 +234,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

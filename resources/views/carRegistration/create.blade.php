@@ -8,7 +8,6 @@
 		<p>{{ $message }}</p>
 	</div>
 @endif
-
 {{-- END SESSION MESSAGE --}}
 {{-- ACORDDION START --}}
 	<div class="accordion" id="accordionExample">
@@ -59,7 +58,7 @@
 				    <span class="input-group-text">Upload Json</span>
 				  </div>
 				  <div class="custom-file">
-				    <input type="file" name="jsonFile" class="custom-file-input" name="jsonFileUI" id="jsonfile">
+				    <input type="file" class="custom-file-input" name="jsonFileUI" id="jsonfile">
 				    <label class="custom-file-label"  for="jsonfile">Choose file</label>
 				  </div>
 				</div>
@@ -70,6 +69,7 @@
 	  </div>
 	  {{-- END UPLOAD JSON --}}
 	  {{--  UPLOAD MANUAL --}}
+
 	  <div class="card">
 	    <div class="card-header" id="headingThree">
 	      <h2 class="mb-0  text-center">
@@ -82,6 +82,7 @@
 	      <div class="card-body">
 	       <form action="{{ route('car-registration.store') }}" method="POST">
 	       	@csrf
+
 	       		{{-- TOWSHIPS --}}
 				<label for="township">Townships</label>
 				<input type="text" name="townshipsUI" id="township" class="form-control" value="{{ old('townshipsUI') }}" required>
@@ -98,7 +99,7 @@
 				<input type="text" name="carClassUI" class="form-control" required id="carclass" value="{{ old('carClassUI') }}">
 				<br>
 				<label for="brand">Car brand</label>
-				<input type="text" name="brandUI" class="form-control" required id="brand" value="{{ old('brandUI') }}">
+				<input type="text" name="carBrandUI" class="form-control" required id="brand" value="{{ old('brandUI') }}">
 				<br>
 				<label for="line">Line</label>
 				<input type="text" name="lineUI" class="form-control" required id="line" value="{{ old('lineUI') }}">
@@ -120,6 +121,7 @@
 	  {{-- END UPLOAD MANUAL --}}
 	</div>
 {{-- ACORDDION  ENDS --}}
-
+	<br>
+	<a href="{{ route('car-registration.index') }}" class="btn btn-primary">Back to list</a>
 
 @endsection

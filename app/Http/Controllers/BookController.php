@@ -91,7 +91,7 @@ class BookController extends Controller
             'detail' => 'required',
         ]);
 
-
+        return $request->all();
         $book->update($request->all());
 
 
